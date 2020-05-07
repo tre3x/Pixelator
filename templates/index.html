@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+
+    <script src="{{url_for('static', filename='index.js')}}"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"> 
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark"> 
+        <div class="mx-auto order-0">
+          <h1 class="navbar-brand mx-auto" style="font-family:Regular 400; font-size: 1.8rem;">PIXELATOR
+          </h1>
+        </div>
+      </nav>
+
+
+
+    <div class="container" style="background: white;margin-top: 20px;">
+      <h2 style="font-size: 30px; text-align: center;"> Turn Any image into Pixel art</h2>
+
+
+        <div class="row">
+          <div class="col-sm" style="text-align: center; margin-top:30px">
+            <img src="../../../static/image/canvas.png" style="max-width: 80%; max-height:80%;">
+          </div>
+        </div>
+        <p style="font-family: 'Bold 700';text-align: center; font-size: 1.25rem;">This tool helps you make super cool pixel images out of your super detailed photos. These pixelated sprites can be used in the your current game project or your cool instagram posts!</p>
+        <h1 style="font-family: 'Bold 700';text-align: center; ">Happy Pixelating!</h1>
+
+
+      <form action ="/click" method = 'POST' enctype="multipart/form-data" style="text-align:center;margin-top: 40px;">
+        <p>Enter the number of blocks you want : (Greater than 100 suggested)</p>
+        <input type = "text" name ="n" >
+
+        {% if inputn == False %}
+            <p style="text-align: center;font-family: 'Bold 700';">Invalid Input</p>
+            {% endif %}
+
+        <p>Do you want to stick to your original Resolution? (Not suggested for high resolution photos. No worries, decreasing resolution wont make your photo less cool!)</p>
+
+        <input type="radio" id="No" name="YesNo" value="No">
+        <label for="No">No</label><br>
+        <input type="radio" id="Yes" name="YesNo" value="Yes">
+        <label for="Yes">Yes</label><br>
+
+        {% if inputyesno == False %}
+            <p style="text-align: center;font-family: 'Bold 700';"> Invalid Input</p>
+            {% endif %}
+
+
+        <input type = "file" name = "nm" accept="image" style="margin-top: 20px;" >
+        <input type = "submit" value = "submit" onclick="loading()" style="margin-top: 20px;margin-bottom: 20px; " >
+    </form>
+
+    <div id="loaded" style=" display: none;text-align:center;margin-bottom: 10px;">
+        <div class="loaderanim">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+
+    {% if file == False %}
+            <p style="text-align: center;font-family: 'Bold 700';">No Files Selected</p>
+            {% endif %}
+
+
+
+    {% if clicked == True %}
+    <div class="row">
+        <div class="col-sm" style="text-align: center; margin-top:30px">
+          <img src="{{ filelink }}" style="max-width: 80%; max-height:80%;">
+        </div>
+      </div>
+    {% endif %}
+
+
+    </div> 
+
+    <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+          <p>Made with <i class="fas fa-heart"></i> by Shreyan Ganguly</p>
+          <p><a href="https://github.com/GangulyShreyan" ><i class="fab fa-github" style="margin-right: 1em;"></i></a><a href="https://www.linkedin.com/in/shreyan-ganguly-467882191/" ><i class="fab fa-linkedin" ></i></a></p>
+        </div>
+      </footer>
+
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+
+        
+    
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
