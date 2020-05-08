@@ -45,7 +45,8 @@ def click():
         filepath = os.path.join(app.config['inputt'],inputfilename)
         file.save(filepath)
         outputfilename = corescript.converter(filepath,int(n), choice,photoid)
-        return render_template("index.html", num = square, idshow =outputfilename, test = True)
+        filepath = os.path.join(app.config['output'], outputfilename)
+        return render_template("index.html", num = square, idshow =filepath, test = True)
 
 
         
@@ -56,7 +57,7 @@ def click():
         
         
 
-        filepath = os.path.join(app.config['output'], outputfilename)
+        
 
         return render_template("index.html", clicked = True, filelink = filepath)
         
