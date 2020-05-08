@@ -41,7 +41,7 @@ def click():
 
         photoid = datetime.now().strftime('%Y%m-%d%H-%M%S')
         square = testpy.tes(5)
-        return render_template("index.html", num = square, idshow =photoid test = True)
+        return render_template("index.html", num = square, idshow =photoid, test = True)
 
 
         
