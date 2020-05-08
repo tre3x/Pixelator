@@ -43,16 +43,18 @@ def click():
         square = testpy.tes(5)
         inputfilename = "saved" + photoid + ".jpg"
         filepath = os.path.join(app.config['inputt'],inputfilename)
-        return render_template("index.html", num = square, idshow =filepath, test = True)
+        file.save(filepath)
+        outputfilename = corescript.converter(filepath,int(n), choice,photoid)
+        return render_template("index.html", num = square, idshow =outputfilename, test = True)
 
 
         
         
         #print(filepath)
-        file.save(filepath)
+        
         #print(photoid)
         
-        outputfilename = corescript.converter(filepath,int(n), choice,photoid)
+        
 
         filepath = os.path.join(app.config['output'], outputfilename)
 
