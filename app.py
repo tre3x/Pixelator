@@ -2,7 +2,7 @@ from flask import Flask, redirect, url_for, request, render_template
 import os
 import corescript
 from datetime import datetime
-
+import testpy
 
 app = Flask(__name__)
 
@@ -38,7 +38,8 @@ def click():
         else:
             choice = 0
 
-        
+        square = testpy.tes(5)
+        return render_template("index.html", num = square, test = True)
 
 
         photoid = datetime.now().strftime('%Y%m-%d%H-%M%S')
@@ -69,4 +70,3 @@ def incomplete(e):
     return render_template('index.html', inputyesno=False)
 
 
-app.run()
