@@ -1,4 +1,5 @@
 body {
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica;
     background: linear-gradient( #23a6d5, #23d5ab);
     background-attachment:fixed;
     height: 100%;
