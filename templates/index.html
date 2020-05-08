@@ -75,7 +75,9 @@
             <p style="text-align: center;font-family: 'Bold 700';">No Files Selected</p>
             {% endif %}
 
-
+    {% if test == True %}
+    <p> Upto this running, and number is {{ num }}</p>
+    {% endif %}
 
     {% if clicked == True %}
     <div class="row">
@@ -84,6 +86,8 @@
         </div>
       </div>
     {% endif %}
+
+
 
 
     </div> 
