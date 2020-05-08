@@ -38,11 +38,13 @@ def click():
         else:
             choice = 0
 
-        square = testpy.tes(5)
-        return render_template("index.html", num = square, test = True)
-
 
         photoid = datetime.now().strftime('%Y%m-%d%H-%M%S')
+        square = testpy.tes(5)
+        return render_template("index.html", num = square, idshow =photoid test = True)
+
+
+        
         inputfilename = "saved" + photoid + ".jpg"
         filepath = os.path.join(app.config['inputt'],inputfilename)
         #print(filepath)
