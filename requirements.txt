@@ -9,4 +9,4 @@ Pillow==7.1.2
 Werkzeug==1.0.1
 
 
-TIMEOUT == 800
+TIMEOUT = 800
